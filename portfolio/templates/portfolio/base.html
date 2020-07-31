@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-portfoli{% endblock %}
+
+{% block extra_css %}
+
+<!-- Здесь можно разместить стили для главной старницы -->
+
+{% endblock extra_css %}
+
+
+{% block extra_js %}
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.matchHeight-min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock extra_js %}

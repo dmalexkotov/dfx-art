@@ -1,0 +1,76 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="main single_page">
+    <div class="container">
+        <ul class="breadcramps">
+            <li><a href="#">MAIN /</a> </li>
+            <li><a href="#">ALL PROJECTS /</a> </li>
+            <li class="current-level">WISARDS GOLD </li>
+        </ul>
+        <div class="project_title">Wisards gold</div>
+        <div class="project_video">
+            <video muted controls id="single_title_video">
+                <source src="{% static 'video/DragonGold_Changing.mp4' %}">
+            </video>
+            <img src="img/playbtn.png" alt="" class="play_img">
+        </div>
+    </div>
+</div>
+<div class="project_gallery">
+    <div class="container">
+        <div class="gallery_title"><span>images</span> of this project</div>
+        <div class="gallery">
+            <div class="projects__item">
+                <div>
+                    <a data-fancybox="gallery-video" href="#video1">
+                        <img src={% static 'img/project-1.png' %} alt=""></a>
+                    <video muted controls id="video1">
+                        <source src="{% static 'video/DragonGold_Changing.mp4' %}">
+                    </video>
+                </div>
+            </div>
+            <div class="projects__item">
+                <div>
+                    <a href=""></a>
+                    <img src="{% static 'img/project-1.png' %}" alt="">
+                </div>
+            </div>
+            <div class="projects__item">
+                <div>
+                    <a href=""></a>
+                    <img src="{% static 'img/project-1.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="single_progect_descr">
+            I’ve played this game in the past on a cruise. By chance I found it again in my local casino. It was hidden
+            in a multigame machine.
+            I love to play it because you have 3 colums wild in the bonus.
+            <br>
+            <br>
+            Big Win Holland Casino, Venlo, Netherlands, April 2018
+            <br>
+            <br>
+            hank you for watching my channel. Please support me and my channel. 🙏 Share this video with family and
+            friends, who likes the WIZARD’S GOLD Slot Machine,
+            or watch my other videos. Make sure, that you subscribe and hit that 🔔 to get a notification for my new
+            videos.
+            If you like my video, please give it a 👍 and also leave me a comment down below, or just say «Hi». 😉 I
+            appreciate it. Thank you very much.
+        </div>
+    </div>
+</div>
+
+<div class="single_project_nav">
+    <div class="container">
+        <div class="single_project_nav_wrap">
+            <a href="#" class="prev"><img src="{% static 'img/prev.png' %}" alt=""> prev</a>
+            <a class="btn btn-main" href="#">all projects<span class="btn-main__lines1"></span><span
+                    class="btn-main__lines2"></span></a>
+            <a href="#" class="next">next <img src="{% static 'img/next.png' %}" alt=""></a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
