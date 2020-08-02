@@ -18,24 +18,49 @@ class BannerBlock(blocks.StructBlock):
         label = 'Banner block'
 
 
-class AboutBlock(blocks.StructBlock):
+class InformersBlock(blocks.StructBlock):
     """Блок для блока описания на главной странице."""
 
-    title = blocks.CharBlock(required=True, help_text=_('Add title'))
-    text = blocks.TextBlock(required=True, help_text=_('Add text'))
-    image = ImageChooserBlock(
-        required=True, help_text=_('Add background image'))
+    content = blocks.ListBlock(blocks.StructBlock([
+        ('text',  blocks.TextBlock(required=True, help_text=_('Add text'))),
+        (
+            'image',
+            ImageChooserBlock(
+                required=True, help_text=_('Add background image')
+            )
+        )
+    ]))
 
     class Meta:
-        template = 'home/blocks/about_block.html'
+        template = 'home/blocks/informers_block.html'
         icon = 'edit'
-        label = 'About block'
+        label = 'Informers Block'
 
 
 class HeaderedBlock(blocks.StructBlock):
     """Блок с заголовком."""
 
     title = blocks.CharBlock(required=True, help_text=_('Add title'))
+
+
+class AboutBlock(HeaderedBlock):
+    """Блок для блока описания на главной странице."""
+
+    content = blocks.ListBlock(blocks.StructBlock([
+        ('title', blocks.CharBlock(required=True, help_text=_('Add title'))),
+        ('text',  blocks.TextBlock(required=True, help_text=_('Add text'))),
+        (
+            'image',
+            ImageChooserBlock(
+                required=True, help_text=_('Add background image')
+            )
+        )
+    ]))
+
+    class Meta:
+        template = 'home/blocks/about_block.html'
+        icon = 'edit'
+        label = 'About block'
 
 
 class ProjectListBlock(HeaderedBlock):
@@ -45,6 +70,6 @@ class ProjectListBlock(HeaderedBlock):
         blocks.PageChooserBlock(page_type='portfolio.projectpage'))
 
     class Meta:
-        template = 'home/blocks/about_block.html'
+        template = 'home/blocks/project_list_block.html'
         icon = 'edit'
         label = 'Project list block'

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static wagtailcore_tags  %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -10,55 +10,9 @@
 {% endblock extra_css %}
 
 {% block content %}
-<div class="main">
-    <div class="container">
-        <div class="main__inner">
-            <div class="main__title">Art <span class="color-green">and Graphics</span><span class="main__title__spec">
-                    Development</span></div>
-            <div class="main__text">DFX Art develops art and graphics for PC, console, mobile games, slot machines &
-                iGaming, starting with the development of graphic concepts and ending with the finished product. With
-                more than 15 years of work in the field, our experience is unrivalled.</div>
-            <div class="main__scroll">Scroll
-                <div class="main__scroll__elem"></div>
-            </div>
-        </div>
-    </div>
-    <div class="main__back">
-        <video class="" loop autoplay src="{% static 'video/Dragon12v.mp4' %}" muted id="main_video_bg">
-
-        </video>
-        <div class="main__bg-img"><img src="{% static 'img/bg-main.jpg' %}" alt=""></div>
-        <div class="main__bg-text"><img src="{% static 'img/text-bg.png' %}" alt=""></div>
-        <div class="main__bg-grid"><img src="{% static 'img/grid-bg.png' %}" alt=""></div>
-        <div class="main__bg-shadow"></div>
-        <div class="main__bg-shadow2"></div>
-    </div>
-</div>
-<div class="container section-informers">
-    <div class="informers-row">
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/buildings.png' %}" alt=""></div>
-            <div class="informer-item__text">HQ: Estonia, Narva.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/group.png' %}" alt=""></div>
-            <div class="informer-item__text">SEVERAL DIFFERENT PROFESSIONAL TEAMS, WITH A TOTAL OF MORE THAN 150 PEOPLE
-                WORK UNDER OUR MANAGEMENT.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/laptop.png' %}" alt=""></div>
-            <div class="informer-item__text">Over 520 slots designed for the Top 5 companies.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/casino.png' %}" alt=""></div>
-            <div class="informer-item__text">Over 15 years of game development.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/Winner.png' %}" alt=""></div>
-            <div class="informer-item__text">We’re the best! With us, you’re always a winner!</div>
-        </div>
-    </div>
-</div>
+    {% for block in page.content %}
+        {% include_block block %}
+    {% endfor %}
 <div class="about-item about-item_spec" id="section-experience">
     <div class="about-item__main">
         <div class="container">
@@ -400,81 +354,6 @@
             </div>
         </div>
     </div>
-</div>
-<div class="section-projects">
-    <div class="container">
-        <div class="title-section">last <span>projects</span></div>
-    </div>
-    <div class="projects owl-carousel">
-
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/pirate-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">coin mania</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video2" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/CoinOManiaDemoVideo2v.mp4' %}" poster="img/pirate-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/zodiack-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">zodiack lion</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video3" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/LionDemoVideo2v.mp4' %}" poster="img/zodiack-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/project-3.jpg' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">sphinx link</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video1" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/BeeWildDemoVideo1v.mp4' %}" poster="img/honey-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/dragon-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">dragon sphere</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video5" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/DragonSphereDemoVideo1v.mp4' %}" poster="img/dragon-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/romantic-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">italian journey</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video4" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/RomanceInItaly2v.mp4' %}" poster="img/romantic-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-    </div>
-    <a class="btn btn-main" href="#">all projects<span class="btn-main__lines1"></span><span
-            class="btn-main__lines2"></span></a>
 </div>
 <div class="section-programming" id="section-programming">
     <div class="container">
