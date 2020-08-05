@@ -1,0 +1,25 @@
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="container section-founders" id="section-patents">
+    <!-- <div class="title-section">Founders <span>patents</span></div> -->
+    <div class="title-section">{{self.title}}</div>
+    {% for item in self.items %}
+         <div class="block-info block-info_patent">
+            <div class="block-info__main">
+                <div class="desc-title">{{item.desc_title}}</div>
+                <div class="patent-title">{{item.title}}</div>
+                <div class="patent-desc">{{item.description}}</div>
+                <div><a class="btn btn-main" href="#">More<span class="btn-main__lines1"></span><span
+                            class="btn-main__lines2"></span></a></div>
+            </div>
+            {% image item.image original as tmp_photo %}
+            <div class="block-info__img"><img src="{{tmp_photo.url}}" alt="">
+                <div class="block-info__img__title-overlay">{{item.imgae_text}}</div>
+                <div class="block-info__num">02</div>
+                <div class="block-info-bg-elem2"></div>
+            </div>
+        </div>
+    {% endfor %}
+   
+</div>

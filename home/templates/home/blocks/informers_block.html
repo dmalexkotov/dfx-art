@@ -1,27 +1,13 @@
-{% load static wagtailcore_tags  %}
+{% load static wagtailcore_tags  wagtailimages_tags %}
 
 <div class="container section-informers">
     <div class="informers-row">
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/buildings.png' %}" alt=""></div>
-            <div class="informer-item__text">HQ: Estonia, Narva.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/group.png' %}" alt=""></div>
-            <div class="informer-item__text">SEVERAL DIFFERENT PROFESSIONAL TEAMS, WITH A TOTAL OF MORE THAN 150 PEOPLE
-                WORK UNDER OUR MANAGEMENT.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/laptop.png' %}" alt=""></div>
-            <div class="informer-item__text">Over 520 slots designed for the Top 5 companies.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/casino.png' %}" alt=""></div>
-            <div class="informer-item__text">Over 15 years of game development.</div>
-        </div>
-        <div class="informer-item">
-            <div class="informer-item__icon"><img src="{% static 'img/Winner.png' %}" alt=""></div>
-            <div class="informer-item__text">We’re the best! With us, you’re always a winner!</div>
-        </div>
+        {% for item in self.content %}
+            <div class="informer-item">
+                {% image item.image original as tmp_photo %}
+                <div class="informer-item__icon"><img src="{{tmp_photo.url}}" alt=""></div>
+                <div class="informer-item__text">{{ item.text }}</div>
+            </div>    
+        {% endfor %}
     </div>
 </div>

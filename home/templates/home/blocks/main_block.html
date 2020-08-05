@@ -3,19 +3,16 @@
 <div class="main">
     <div class="container">
         <div class="main__inner">
-            <div class="main__title">Art <span class="color-green">and Graphics</span><span class="main__title__spec">
-                    Development</span></div>
-            <div class="main__text">DFX Art develops art and graphics for PC, console, mobile games, slot machines &
-                iGaming, starting with the development of graphic concepts and ending with the finished product. With
-                more than 15 years of work in the field, our experience is unrivalled.</div>
+            <!-- <div class="main__title">Art <span class="color-green">and Graphics</span><span class="main__title__spec">Development</span></div> -->
+            <div class="main__title">{{ self.title }}</div>
+            <div class="main__text">{{ self.text }}</div>
             <div class="main__scroll">Scroll
                 <div class="main__scroll__elem"></div>
             </div>
         </div>
     </div>
     <div class="main__back">
-        <video class="" loop autoplay src="{% static 'video/Dragon12v.mp4' %}" muted id="main_video_bg">
-
+        <video class="" loop autoplay src="{{ self.background.url }}" muted id="main_video_bg">
         </video>
         <div class="main__bg-img"><img src="{% static 'img/bg-main.jpg' %}" alt=""></div>
         <div class="main__bg-text"><img src="{% static 'img/text-bg.png' %}" alt=""></div>

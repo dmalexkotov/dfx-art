@@ -1,76 +1,26 @@
-{% load static wagtailcore_tags  %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 <div class="section-projects">
     <div class="container">
         <div class="title-section">last <span>projects</span></div>
     </div>
     <div class="projects owl-carousel">
-
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/pirate-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">coin mania</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
+        {% for item in self.content %}
+            <div class="projects__item">
+                <div>
+                    {% image item.cover original as tmp_photo %}
+                    <img src="{{tmp_photo.url}}" alt="">
+                    <div class="project__item_detail">
+                        <div class="project__item_title">{{item.title}}</div>
+                        <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
+                                class="btn-main__lines2"></span></a>
+                    </div>
+                    <!-- <video class="b-lazy slider-video" id="video2" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/CoinOManiaDemoVideo2v.mp4' %}" poster="img/pirate-poster.png" autoplay muted data-object-fit="cover">
+                            
+                        </video> -->
                 </div>
-                <!-- <video class="b-lazy slider-video" id="video2" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/CoinOManiaDemoVideo2v.mp4' %}" poster="img/pirate-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
             </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/zodiack-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">zodiack lion</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video3" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/LionDemoVideo2v.mp4' %}" poster="img/zodiack-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/project-3.jpg' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">sphinx link</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video1" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/BeeWildDemoVideo1v.mp4' %}" poster="img/honey-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/dragon-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">dragon sphere</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video5" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/DragonSphereDemoVideo1v.mp4' %}" poster="img/dragon-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
-        <div class="projects__item">
-            <div>
-                <img src="{% static 'img/romantic-poster.png' %}" alt="">
-                <div class="project__item_detail">
-                    <div class="project__item_title">italian journey</div>
-                    <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a>
-                </div>
-                <!-- <video class="b-lazy slider-video" id="video4" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/RomanceInItaly2v.mp4' %}" poster="img/romantic-poster.png" autoplay muted data-object-fit="cover">
-                        
-                    </video> -->
-            </div>
-        </div>
+        {% endfor %}
     </div>
     <a class="btn btn-main" href="#">all projects<span class="btn-main__lines1"></span><span
             class="btn-main__lines2"></span></a>

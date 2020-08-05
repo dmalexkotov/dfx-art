@@ -1,1 +1,27 @@
-<h1>AB</h1>
+{% load static wagtailcore_tags  wagtailimages_tags %}
+
+<div class="about-item about-item_spec" id="section-experience">
+    <div class="about-item__main">
+        <div class="container">
+            <div class="about-item__block">
+                <div class="about-item__block__inner js-section-text">
+                    <!-- <div class="title-section">Huge <span>Experience</span></div> -->
+                    <div class="title-section">{{self.title}}</div>
+                    {{ self.text }}
+                </div>
+                <div class="bg-elem"></div>
+            </div>
+        </div>
+    </div>
+    <div class="video-bg">
+        <video class="" width="100%" height="auto" preload="auto" loop="loop"
+            src="{{ self.video_background.url }}" autoplay muted data-object-fit="cover">
+
+        </video>
+    </div>
+    <div class="img-bg">
+        <div class="img-bg__col"></div>
+        {% image self.image_background original as tmp_photo %}
+        <div class="img-bg__col img-bg__col_main"><img src="{{tmp_photo.url}}" alt=""></div>
+    </div>
+</div>

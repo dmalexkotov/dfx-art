@@ -1,0 +1,25 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="section-programming" id="section-programming">
+    <div class="container">
+        <div class="title-section">{{self.title}}</div>
+        <div class="text-wrapper">
+            {{self.description}}
+        </div>
+    </div>
+    <div class="programming-blocks-wrapper owl-carousel">
+        {% for item in self.items  %}
+            <div class="programming-block">
+                <div class="container">
+                    <div class="programming-block__logo">
+                        {% image item.image original as tmp_photo %}
+                        <div><img src="{{tmp_photo.url}}" alt=""></div>
+                    </div>
+                    <div>
+                        <p>{{item.description}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}    
+    </div>
+</div>

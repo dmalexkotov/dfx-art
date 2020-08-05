@@ -1,0 +1,21 @@
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+<div class="container section-awards" id="section-awards">
+    <div class="title-section">{{self.title}}</div>
+    {% for item in self.items %}
+        <div class="block-info">
+            {% image item.image original as tmp_image %}
+            {% image item.badge original as tmp_badge %}
+            <div class="block-info__img"><img src="{{tmp_image.url}}" alt="">
+                <div class="block-info__badge"><img src="{{tmp_badge.url}}" alt=""></div>
+                <div class="block-info__num">01</div>
+                <div class="block-info-bg-elem"></div>
+            </div>
+            <div class="block-info__main">
+                <div class="desc-title">{{item.title}}</div>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>

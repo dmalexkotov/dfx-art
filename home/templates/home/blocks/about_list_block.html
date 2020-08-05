@@ -1,0 +1,184 @@
+{% load static wagtailcore_tags wagtailimages_tags  %}
+
+<div class="section-incredible" id="section-incredible">
+    <div class="section-incredible__top">
+        <div class="container">
+            <!-- <div class="title-section">Incredible <span>COMPUTER GRAPHICS</span></div> -->
+            <div class="title-section">{{self.title}}</div>
+        </div>
+    </div>
+    <div class="about-items-wrapper hide-992">
+        {% for item in self.items %}
+            <div class="about-item about-item_mod-size">
+                <div class="about-item__main">
+                    <div class="container">
+                        <div class="about-item__block {% if item.side %} about-item__block_align-right {% endif %}">
+                            <div class="about-item__block__inner">
+                                <div class="about-item__block__top">
+                                    {% comment %} <div class="about-item__title1" id="section2d">2D <span>Graphics</span></div> {% endcomment %}
+                                    {% if item.title %}
+                                        <div class="about-item__title1" id="section2d">{{item.title}}</div>
+                                    {% endif %}
+                                    {% if item.subtitle %}
+                                        {% comment %} <div class="about-item__title2">Concepts <span>&amp;</span> Layout Design / Sketches
+                                        <span>&amp;</span> Drawing</div> {% endcomment %}
+                                        <div class="about-item__title2">{{item.subtitle}}</div>
+                                    {% endif %}
+                                    
+                                </div>
+                                {{item.text}}
+                                <span class="showless">Show less</span>
+                            </div>
+                            <div class="bg-elem2"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="img-bg">
+                    {% image item.image_background original as tmp_photo %}
+                    <div class="img-bg__col img-bg__col_img-main"><img src="{{tmp_photo.url}}" alt=""></div>
+                    <div class="img-bg__col"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="about-slider">
+        <div class="js-about-items css-about-items owl-carousel">
+            {% for item in self.items %}
+                <div class="about-item about-item_mod-size">
+                    <div class="about-item__main">
+                        <div class="container">
+                            <div class="about-item__block about-item__block_align-right">
+                                <div class="about-item__block__inner">
+                                    <div class="about-item__block__top">
+                                        {% if item.title %}
+                                            {% comment %} <div class="about-item__title1">2D <span>Graphics</span></div> {% endcomment %}
+                                            <div class="about-item__title1">{{item.title}}</div>
+                                        {% endif %}
+                                        {% if item.subtitle %}
+                                            {% comment %} <div class="about-item__title2">Concepts <span>&amp;</span> Layout Design / Sketches
+                                                <span>&amp;</span> Drawing</div> {% endcomment %}
+                                            <div class="about-item__title2">{{item.subtitle}}</div>
+                                        {% endif %}
+                                    </div>
+                                    {{item.text}}
+                                </div>
+                                <div class="bg-elem2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+            <div class="about-item about-item_mod-size">
+                <div class="about-item__main">
+                    <div class="container">
+                        <div class="about-item__block anim2d3d">
+                            <div class="about-item__block__inner">
+                                <div class="about-item__block__top">
+                                    <div class="about-item__title1">2D/3D <span>Animation</span></div>
+                                </div>
+                                <p>The development of an interesting concept and the design of gorgeous graphics is very
+                                    important for the creation of a successful game, but those aren’t the only crucial
+                                    factors. One always enjoys looking at a pretty picture, but it is the animation that
+                                    brings it to life, making it interesting and – quite literally – moving. Through
+                                    perfectly coordinated animations of various elements, we bring the graphics closer
+                                    to reality and thereby to the viewer. Just looking at the game becomes an exciting
+                                    experience, all thanks to our original animation design. It is indeed a moving
+                                    experience.</p>
+                                <p>Our 2D- and 3D-animation specialists have accumulated years of experience. They know
+                                    exactly how to reflect light, how to turn objects or to move people in order to make
+                                    them look more interesting and realistic. Starting with the animations of the
+                                    simplest objects and "special effects" and through to complicated and realistic
+                                    person animations – we can produce everything in high quality. Even if it’s just
+                                    lightning striking in the background – we take every little task seriously and
+                                    approach it with a high level of professionalism!</p>
+                                <p>We have mastered a wide variety of development environments that we use to create our
+                                    animations. The following ones are in demand amongst our partners: Maya, 3ds max,
+                                    Fusion, Adobe After Effects, Spine and of course UNITY. As always, we are ready to
+                                    accept new challenges and can quickly acquire a new "package" if necessary while
+                                    animating.</p>
+                            </div>
+                            <div class="bg-elem2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-item about-item_mod-size">
+                <div class="about-item__main">
+                    <div class="container">
+                        <div class="about-item__block about-item__block_align-right">
+                            <div class="about-item__block__inner">
+                                <div class="about-item__block__top">
+                                    <div class="about-item__title1">3D <span>Graphics</span></div>
+                                    <div class="about-item__title2"> 3D modeling <span>&amp;</span> Texturing/ Skining
+                                        <span>&amp;</span> Rigging</div>
+                                </div>
+                                <p>A high-quality 3D model that meets all of the customer’s wishes and the technical
+                                    requirements and characteristics – that’s the base that interesting animations,
+                                    spectacular transitions and video clips are built on.</p>
+                                <p>We have mastered the production of three-dimensional models in all of the most
+                                    popular programs - max, maya, blender, zBrush, 3d coat. And, as our experience
+                                    shows, we can easily master any new packages if necessary.</p>
+                                <p>It’s not without reason that our slogan is “all can be created”. We really can create
+                                    anything and everything and know no restrictions – neither in terms of the style nor
+                                    the forms or types of 3D-models. Starting with simple objects through to complex
+                                    characters, from high-field models for the production of video clips and to
+                                    economical low-field models that can be used in online environments and on hardware
+                                    with lower performance characteristics – we will always create exactly what you
+                                    need!</p>
+                                <p>An important stage of working with 3D models, but unfortunately one which is
+                                    practically invisible to the viewer, is the preparation of those models for their
+                                    animation – skinning, rigging. Alas, it always remains “behind the scenes”, even
+                                    though the quality of the character animation relies directly on their quality. It
+                                    goes without saying that this work is done in accordance to the highest standards.
+                                </p>
+                            </div>
+                            <div class="bg-elem2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-item about-item_mod-size">
+                <div class="about-item__main">
+                    <div class="container">
+                        <div class="about-item__block">
+                            <div class="about-item__block__inner">
+                                <div class="about-item__block__top">
+                                    <div class="about-item__title1">Unity <span>FX</span></div>
+                                    <div class="about-item__title2">Concepts <span>&amp;</span> Layout Design / Sketches
+                                        <span>&amp;</span> Drawing</div>
+                                </div>
+                                <p>As already mentioned in the section about 3D-modelling, working directly in the UNITY
+                                    engine is one of many skills we have perfected. Starting with the creation of simple
+                                    objects right through to complex scenes, animations and gorgeous visual effects –
+                                    our specialists are unsurpassed masters in this field. This is known and appreciated
+                                    by our partners who are increasingly resorting to developments in this particular
+                                    engine, including IGT – one of the leading companies in the industry. For them, we
+                                    develop most of our projects in this particular environment.</p>
+                            </div>
+                            <div class="bg-elem2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="js-about-bg css-about-bg owl-carousel">
+            <div class="img-bg">
+                <div class="img-bg__col img-bg__col_img-main"><img src="{% static 'img/img-bg-2-1.jpg' %}" alt=""></div>
+                <div class="img-bg__col"></div>
+            </div>
+            <div class="img-bg">
+                <div class="img-bg__col"></div>
+                <div class="img-bg__col img-bg__col_img-main"><img src="{% static 'img/img-bg-3-5.jpg' %}" alt=""></div>
+            </div>
+            <div class="img-bg">
+                <div class="img-bg__col img-bg__col_img-main"><img src="{% static 'img/img-bg-4-1.jpg' %}" alt=""></div>
+                <div class="img-bg__col"></div>
+            </div>
+            <div class="img-bg">
+                <div class="img-bg__col"></div>
+                <div class="img-bg__col img-bg__col_img-main"><img src="{% static 'img/img-bg-3-2.jpg' %}" alt=""></div>
+            </div>
+        </div>
+    </div>
+</div>
