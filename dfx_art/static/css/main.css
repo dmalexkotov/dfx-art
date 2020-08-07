@@ -3125,6 +3125,14 @@ header.dark-head .logo__title span {
   width: calc(100% / 5);
 }
 
+.section-projects.portfolio .portfolio-list .projects__item .project__item_detail video{
+  display: none;
+}
+
+.section-projects.portfolio .portfolio-list .projects__item .project__item_detail img{
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .section-projects.portfolio .portfolio-list .projects__item {
     width: -webkit-calc(100% / 4);

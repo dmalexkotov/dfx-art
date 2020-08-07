@@ -75,7 +75,7 @@ class ProjectListBlock(HeaderedBlock):
     """Блок со списком проектов для главной."""
 
     content = blocks.ListBlock(
-        blocks.PageChooserBlock(page_type='portfolio.projectpage'))
+        blocks.PageChooserBlock())
 
     class Meta:
         template = 'home/blocks/project_list_block.html'

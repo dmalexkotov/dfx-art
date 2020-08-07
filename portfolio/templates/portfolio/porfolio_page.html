@@ -1,5 +1,5 @@
 {% extends "portfolio/base.html" %}
-{% load static %}
+{% load static portfolio_tags wagtailcore_tags %}
 
 {% block content %}
 <div class="section-projects portfolio">
@@ -7,17 +7,27 @@
         <div class="portfolio-menu">
             <div class="title-section">Portfolio</div>
             <div class="portfolio-menu">
-                <div class="menu-item active"><a href="#">games</a> </div>
+                {% get_portfolio_pages as portfolio_pages %}
+                {% for portfolio_page in portfolio_pages %}
+                    <div class="menu-item {%if portfolio_page.id == page.id %} active {% endif %}">
+                        <a href="{% pageurl portfolio_page %}">{{portfolio_page.title}}</a>
+                    </div>
+                {% endfor %}
+                {% comment %} <div class="menu-item active"><a href="#">games</a> </div>
                 <div class="menu-item"><a href="#">sketches</a></div>
                 <div class="menu-item"><a href="#">drawing</a></div>
-                <div class="menu-item"><a href="#">animation</a></div>
+                <div class="menu-item"><a href="#">animation</a></div> {% endcomment %}
             </div>
         </div>
     </div>
     <div class="portfolio-list">
+        {% for project in page.projects %}
+            {{project}}
+        {% endfor %}
+        {% comment %}
         <div class="projects__item">
             <div>
-                <img src={% static 'img/project-1.png' %} alt="">
+                <img src="{% static 'img/project-1.png' %}" alt="">
                 <div class="project__item_detail">
                     <div class="project__item_title">wizard gold</div>
                     <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
@@ -214,7 +224,7 @@
                             class="btn-main__lines2"></span></a>
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
 
     <div class="container">

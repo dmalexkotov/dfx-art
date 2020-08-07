@@ -247,6 +247,10 @@ $(document).ready(function() {
     // Options will go here
   });
 
+  $('[data-fancybox="gallery-image"]').fancybox({
+    // Options will go here
+  });
+
   var t = document.querySelector("#menu");
     new MenuSpy(t)
 });
