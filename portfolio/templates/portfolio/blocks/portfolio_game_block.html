@@ -1,11 +1,11 @@
-{% load static %}
+{% load static wagtailcore_tags %}
 
 <div class="projects__item">
     <div>
         <img src="{% static 'img/project-1.png' %}" alt="">
         <div class="project__item_detail">
             <div class="project__item_title">wizard gold</div>
-            <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
+            <a class="btn btn-main" href="{% pageurl self.project_page %}">More detail<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
         </div>
     </div>

@@ -3585,6 +3585,14 @@ header.dark-head .logo__title span {
   display: none;
 }
 
+.project_gallery .gallery .projects__item .projects__item__sources video {
+  display: none;
+}
+
+.project_gallery .gallery .projects__item .projects__item__sources img {
+  display: none;
+}
+
 .project_gallery .single_progect_descr {
   padding: 105px 0 95px;
   font-size: 18px;
