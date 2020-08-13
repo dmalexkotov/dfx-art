@@ -1,0 +1,31 @@
+image: docker:latest
+
+variables:
+  DOCKER_DRIVER: overlay
+
+  RELEASE_APP_BRANCH_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  RELEASE_APP_LATEST_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - deploy
+
+.registry-login: &registry-login
+  before_script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+build-release-master-image:
+  stage: build
+  <<: *registry-login
+  script:
+    - docker build
+      -t $RELEASE_APP_BRANCH_IMAGE
+      -f ./Dockerfile .
+    - docker push $RELEASE_APP_BRANCH_IMAGE
+    - docker tag $RELEASE_APP_BRANCH_IMAGE $RELEASE_APP_LATEST_IMAGE
+    - docker push $RELEASE_APP_LATEST_IMAGE
+  only:
+    - master
