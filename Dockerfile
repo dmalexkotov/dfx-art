@@ -21,6 +21,13 @@ WORKDIR /code/
 # Установка зависимостей через pipenv
 RUN set -ex && pipenv install --deploy --system --dev
 
+# Service scripts
+RUN for i in /code/scripts/*; do \
+    sed -i 's/\r//' $i; \
+    chmod +x $i; \
+    done
+
+
 RUN useradd wagtail
 RUN chown -R wagtail /code
 USER wagtail
