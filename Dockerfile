@@ -1,13 +1,14 @@
 # Use an official Python runtime as a parent image
-FROM python:3.8
+FROM python:3.7-alpine3.9
+
 
 # Set environment varibles
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_ENV dev
 
 # Установка пакетов в систему
-RUN apt update && \
-    apt upgrade && \
+RUN apk update && \
+    apk upgrade && \
     pip install --upgrade pip && \
     pip install wheel pipenv
 
@@ -19,7 +20,7 @@ COPY . /code/
 WORKDIR /code/
 
 # Установка зависимостей через pipenv
-RUN set -ex && pipenv install --deploy --system --dev
+RUN set -ex && pipenv install --deploy
 
 # Service scripts
 RUN for i in /code/scripts/*; do \

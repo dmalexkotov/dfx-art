@@ -14,15 +14,19 @@
         </div>
         <div class="footer__bottom">
             <div class="footer__bottom__col footer-locations">
-                <div class="footer-locations__block">Estonia, Narva<br>Address: Ida-Viru maakond, Narva linn, Tallinna mnt 42-232, 21006<br>Phone: +372 82299023</div>
-                <!-- <div class="footer-locations__block">Dubai<br>Phone: +43 (664) 799-2618<br>Address: Ida-Viru maakond, Narva linn, Tallinna mnt 42-232, 21006</div> -->
-                <div class="footer-locations__block">Austria (Österreich), Salzburg<br>Phone: +43 (664) 799-2618</div>
+                {% with settings.common.ContactsSettings.contacts as contacts %}
+                    {% for c in contacts %}
+                        <div class="footer-locations__block">
+                            {{c}}
+                        </div>
+                    {% endfor %}
+                {% endwith %}
             </div>
             <div class="copyright">© 2019. All rights reserved</div>
             <div class="footer__bottom__col footer-contacts-wrapper">
                 <div class="footer-contact">
-                    <a class="link-mail" href="mailto:info@dfxart.com">
-                        <span class="link-mail__icon hide-768"><img src="img/mail.png" alt=""></span>info@dfxart.com
+                    <a class="link-mail" href="mailto:{{settings.common.ContactsSettings.email}}">
+                        <span class="link-mail__icon hide-768"><img src="img/mail.png" alt=""></span>{{settings.common.ContactsSettings.email}}
                     </a>
                 </div>
                 <!-- <div class="footer-social-text">
