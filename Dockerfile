@@ -6,11 +6,32 @@ FROM python:3.7-alpine3.9
 ENV PYTHONUNBUFFERED 1
 ENV DJANGO_ENV dev
 
+ENV RUNTIME_PACKAGES \
+    libev \
+    pcre \
+    postgresql-dev \
+    docker \
+    jpeg-dev \
+    zlib-dev \
+    libressl-dev \
+    libffi-dev \
+    openssh
+
+ENV BUILD_PACKAGES \
+    libev-dev \
+    git \
+    build-base \
+    pcre-dev \
+    gcc \
+    linux-headers
+
 # Установка пакетов в систему
 RUN apk update && \
     apk upgrade && \
     pip install --upgrade pip && \
     pip install wheel pipenv
+RUN apk --no-cache add --virtual build-deps $BUILD_PACKAGES && \
+    apk --no-cache add $RUNTIME_PACKAGES
 
 RUN pip install gunicorn
 
@@ -20,7 +41,8 @@ COPY . /code/
 WORKDIR /code/
 
 # Установка зависимостей через pipenv
-RUN set -ex && pipenv install --deploy
+RUN set -ex && pipenv install --deploy --system --dev
+RUN apk del build-deps
 
 # Service scripts
 RUN for i in /code/scripts/*; do \
@@ -29,9 +51,9 @@ RUN for i in /code/scripts/*; do \
     done
 
 
-RUN useradd wagtail
-RUN chown -R wagtail /code
-USER wagtail
+# RUN useradd wagtail
+# RUN chown -R wagtail /code
+# USER wagtail
 
 EXPOSE 8000
 
