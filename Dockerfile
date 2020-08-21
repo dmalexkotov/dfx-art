@@ -50,6 +50,7 @@ RUN for i in /code/scripts/*; do \
     chmod +x $i; \
     done
 
+ENV PATH=$PATH:/code/scripts/
 
 # RUN useradd wagtail
 # RUN chown -R wagtail /code
