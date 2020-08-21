@@ -58,6 +58,4 @@ ENV PATH=$PATH:/code/scripts/
 
 EXPOSE 8000
 
-ENTRYPOINT ["entrypoint.sh"]
-
-CMD exec gunicorn dfx_art.wsgi:application --bind 0.0.0.0:8000 --workers 3
+CMD start.sh
