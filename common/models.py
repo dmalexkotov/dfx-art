@@ -1,9 +1,9 @@
 from django.db import models
 from django.http import Http404
 from wagtail.core import blocks
-from wagtail.core.fields import StreamField
+from wagtail.core.fields import StreamField, RichTextField
 from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import StreamFieldPanel
+from wagtail.admin.edit_handlers import StreamFieldPanel, RichTextFieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 from common.blocks import ContactBlock
@@ -24,4 +24,14 @@ class EmptyPage(Page):
     """Страницы заглушка."""
     def serve(self, request):
         raise Http404()
-        
+
+
+class PrivacyPage(Page):
+    """Страницы заглушка."""
+    max_count = 1
+
+    content = RichTextField()
+
+    content_panels = Page.content_panels + [
+        RichTextFieldPanel('content')
+    ]
