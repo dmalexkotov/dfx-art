@@ -22,7 +22,7 @@
                     {% endfor %}
                 {% endwith %}
             </div>
-            <div class="copyright">© 2019. All rights reserved</div>
+            <div class="copyright">© {% now 'Y' %}. All rights reserved</div>
             <div class="footer__bottom__col footer-contacts-wrapper">
                 <div class="footer-contact">
                     <a class="link-mail" href="mailto:{{settings.common.ContactsSettings.email}}">

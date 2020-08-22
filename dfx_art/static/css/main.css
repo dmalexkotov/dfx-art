@@ -722,6 +722,10 @@ main page
   z-index: 11;
 }
 
+.header a {
+  text-decoration: none;
+}
+
 @media (max-width: 992px) {
   .header {
     z-index: 101;
@@ -2403,6 +2407,10 @@ main page
 
 .history__desc p:last-child {
   margin-bottom: 0;
+}
+
+.history__desc hr {
+  display: none;
 }
 
 .history__img {

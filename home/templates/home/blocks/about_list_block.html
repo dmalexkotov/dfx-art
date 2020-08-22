@@ -17,12 +17,12 @@
                                 <div class="about-item__block__top">
                                     {% comment %} <div class="about-item__title1" id="section2d">2D <span>Graphics</span></div> {% endcomment %}
                                     {% if item.title %}
-                                        <div class="about-item__title1" id="section2d">{{item.title}}</div>
+                                        <div class="about-item__title1" id="section2d">{{item.title|safe}}</div>
                                     {% endif %}
-                                    {% if item.subtitle %}
+                                    {% if item.sub_title %}
                                         {% comment %} <div class="about-item__title2">Concepts <span>&amp;</span> Layout Design / Sketches
                                         <span>&amp;</span> Drawing</div> {% endcomment %}
-                                        <div class="about-item__title2">{{item.subtitle}}</div>
+                                        <div class="about-item__title2">{{item.sub_title}}</div>
                                     {% endif %}
                                     
                                 </div>
@@ -52,7 +52,7 @@
                                     <div class="about-item__block__top">
                                         {% if item.title %}
                                             {% comment %} <div class="about-item__title1">2D <span>Graphics</span></div> {% endcomment %}
-                                            <div class="about-item__title1">{{item.title}}</div>
+                                            <div class="about-item__title1">{{item.title|safe}}</div>
                                         {% endif %}
                                         {% if item.subtitle %}
                                             {% comment %} <div class="about-item__title2">Concepts <span>&amp;</span> Layout Design / Sketches

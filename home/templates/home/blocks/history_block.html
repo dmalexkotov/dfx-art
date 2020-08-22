@@ -9,7 +9,7 @@
                 <div class="history__img"><img src="{% static 'img/founders.png' %}" alt="">
                     <div class="about-title">we love what we do</div>
                 </div>
-                {{self.content}}
+                {{self.content|richtext}}
                 <a class="link-more hide-768 js-more">More</a>
                 <div class="visible-768">
                     <a class="link-def js-more">Read More</a>

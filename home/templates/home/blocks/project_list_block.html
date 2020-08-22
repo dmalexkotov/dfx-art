@@ -8,7 +8,7 @@
         {% for item in self.content %}
             <div class="projects__item">
                 <div>
-                    {% image item.cover original as tmp_photo %}
+                    {% image item.projectpage.cover fill-300x500 as tmp_photo%}
                     <img src="{{tmp_photo.url}}" alt="">
                     <div class="project__item_detail">
                         <div class="project__item_title">{{item.title}}</div>
@@ -22,6 +22,6 @@
             </div>
         {% endfor %}
     </div>
-    <a class="btn btn-main" href="#">all projects<span class="btn-main__lines1"></span><span
+    <a class="btn btn-main" href="/portfolio">all projects<span class="btn-main__lines1"></span><span
             class="btn-main__lines2"></span></a>
 </div>

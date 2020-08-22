@@ -4,7 +4,7 @@
     <div class="container">
         <div class="main__inner">
             <!-- <div class="main__title">Art <span class="color-green">and Graphics</span><span class="main__title__spec">Development</span></div> -->
-            <div class="main__title">{{ self.title }}</div>
+            <div class="main__title">{{ self.title|safe }}</div>
             <div class="main__text">{{ self.text }}</div>
             <div class="main__scroll">Scroll
                 <div class="main__scroll__elem"></div>

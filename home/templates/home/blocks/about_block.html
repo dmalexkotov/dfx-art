@@ -6,7 +6,7 @@
             <div class="about-item__block">
                 <div class="about-item__block__inner js-section-text">
                     <!-- <div class="title-section">Huge <span>Experience</span></div> -->
-                    <div class="title-section">{{self.title}}</div>
+                    <div class="title-section">{{self.title|safe}}</div>
                     {{ self.text }}
                 </div>
                 <div class="bg-elem"></div>
