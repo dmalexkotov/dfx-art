@@ -35,10 +35,10 @@
             {% for item in page.gallery_images.all %}
                 <div class="projects__item">
                     <div>
+                       {% image item.image fill-300x500 as cover_image %}
                        {% if item.video %}
                             <a data-fancybox="gallery-video" href="#video-{{item.id}}">
-                                {% image item.image original as tmp_image %}
-                                <img src="{{tmp_image.url}}" alt="">
+                                <img src="{{cover_image.url}}" alt="">
                             </a>
                             <div class="projects__item__sources">
                                 <video muted controls id="video-{{item.id}}">
@@ -47,27 +47,16 @@
                             </div>
                         {% else %}
                             <a data-fancybox="gallery-image" href="#image-{{item.id}}">
-                                {% image item.image original as tmp_image %}
-                                <img src="{{tmp_image.url}}" alt="">
+                                <img src="{{cover_image.url}}" alt="">
                             </a>
                             <div class="projects__item__sources">
-                                <img id="image-{{item.id}}" src="{{tmp_image.url}}" alt="">
+                                {% image item.image original as imageoriginal %}
+                                <img id="image-{{item.id}}" src="{{imageoriginal.url}}" alt="">
                             </div>
                         {% endif %}
                     </div>
                 </div>
             {% endfor %}
-            
-            {% comment %} <div class="projects__item">
-                <div>
-                    <a data-fancybox="gallery-image" href="#image1">
-                        <img src="{% static 'img/project-1.png' %}" alt="">
-                    </a>
-                    <div class="projects__item__sources">
-                        <img id="image1" src="{% static 'img/project-1.png' %}" alt="">
-                    </div>
-                </div>
-            </div> {% endcomment %}
         </div>
         <div class="single_progect_descr">
            {{page.description | richtext}}
@@ -84,7 +73,7 @@
                 <div class="prev"></div>
             {% endif %}
             
-            <a class="btn btn-main" href="/portfolio">all projects<span class="btn-main__lines1"></span><span
+            <a class="btn btn-main" href="/portfolio/games/">all projects<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
             
             {% if next_page %}

@@ -65,7 +65,8 @@ class ProjectGalleryImage(Orderable):
         'wagtaildocs.Document',
         on_delete=models.CASCADE,
         related_name='+',
-        null=True
+        null=True,
+        blank=True
     )
 
     panels = [
