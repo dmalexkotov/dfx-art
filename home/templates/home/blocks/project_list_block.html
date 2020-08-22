@@ -12,8 +12,11 @@
                     <img src="{{tmp_photo.url}}" alt="">
                     <div class="project__item_detail">
                         <div class="project__item_title">{{item.title}}</div>
-                        <a class="btn btn-main" href="#">More detail<span class="btn-main__lines1"></span><span
-                                class="btn-main__lines2"></span></a>
+                        <a class="btn btn-main" href="{% pageurl item %}">
+                            More detail
+                            <span class="btn-main__lines1"></span>
+                            <span class="btn-main__lines2"></span>
+                        </a>
                     </div>
                     <!-- <video class="b-lazy slider-video" id="video2" width="100%" height="100%" preload="auto" loop="loop" data-src="{% static 'video/CoinOManiaDemoVideo2v.mp4' %}" poster="img/pirate-poster.png" autoplay muted data-object-fit="cover">
                             
