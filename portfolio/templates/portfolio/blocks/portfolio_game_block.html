@@ -9,7 +9,7 @@
         {% endif %}
         <img src="{{cover_photo.url}}" alt="">
         <div class="project__item_detail">
-            <div class="project__item_title">{{self.project_page.title}}</div>
+            <div class="project__item_title">{{self.project_page.title}} <h1>{{pagenumber}}</h1></div>
             <a class="btn btn-main" href="{% pageurl self.project_page %}">More detail<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
         </div>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.conf import settings
 from modelcluster.fields import ParentalKey
 from wagtail.core.models import Page, Orderable
 from wagtail.admin.edit_handlers import (
@@ -86,8 +87,12 @@ class PorfolioPage(Page):
 
     def get_pagination_info(self, request, items_count):
         page = int(request.GET.get("page") or 1)
-        page_size = int(request.GET.get("size") or 8)
-        pages_count = int(items_count / page_size) + 1
+        page_size = int(request.GET.get("size") or settings.PORTFOLIO_PAGE_SIZE)
+        
+        pages_count = (
+            int(items_count / page_size)
+            + (items_count % page_size and 1 or 0)
+        )
         return {
             'item_from': (page - 1) * page_size,
             'item_to': (page - 1) * page_size + page_size,

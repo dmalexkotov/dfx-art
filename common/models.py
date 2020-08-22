@@ -1,4 +1,5 @@
 from django.db import models
+from django.http import Http404
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
@@ -21,3 +22,6 @@ class ContactsSettings(BaseSetting):
 
 class EmptyPage(Page):
     """Страницы заглушка."""
+    def serve(self, request):
+        raise Http404()
+        

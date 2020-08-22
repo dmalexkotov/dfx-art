@@ -1,0 +1,5 @@
+{% load static portfolio_tags wagtailcore_tags menu_tags %}
+
+{% for project in projects %}
+    {% include_block project %}
+{% endfor %}

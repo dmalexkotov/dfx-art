@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "home",
     "portfolio",
     "common",
+    "wagtail.api.v2",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.contrib.settings",
@@ -163,3 +164,5 @@ WAGTAIL_SITE_NAME = "dfx_art"
 # within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
+
+PORTFOLIO_PAGE_SIZE = 5

@@ -3286,6 +3286,9 @@ header.dark-head .logo__title span {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin: 62px auto 170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (max-width: 1680px) {
@@ -3344,7 +3347,6 @@ header.dark-head .logo__title span {
   align-items: center;
   margin: 0;
   padding: 0;
-  margin-left: 26%;
   list-style-type: none;
 }
 

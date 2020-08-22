@@ -12,15 +12,22 @@
     <div class="portfolio-list">
         {% for project in page.projects %}
             {% if pagination.item_from <= forloop.counter0 and forloop.counter0 < pagination.item_to %}
-                {{project}}
+                {% include_block project %}
             {% endif %}
         {% endfor %}
     </div>
 
     <div class="container">
         <div class="portfolio-navigation">
-            {% comment %} <a class="btn btn-main" href="#">load more<span class="btn-main__lines1"></span><span
-                    class="btn-main__lines2"></span></a> {% endcomment %}
+            <div></div>
+            {% if pagination.current_page < pagination.pages_total %}
+                <div class="btn btn-main" href="#">
+                    load more
+                    <span class="btn-main__lines1"></span>
+                    <span class="btn-main__lines2"></span>
+                </div>
+            {% endif %}
+            
             <ul>
                 {% for page_num in pagination.pages_total_range %}
                     <li class="{% if pagination.current_page == forloop.counter %} active {% endif %}">
@@ -32,3 +39,12 @@
     </div>
 </div>
 {% endblock content %}
+
+{% block extra_js %}
+<script type="text/javascript">
+    var pageNumber = parseInt("{{ pagination.current_page }}");
+    var pageSize = parseInt("{{ pagination.page_size }}");
+    var pageId = parseInt("{{ page.id }}");
+</script>
+<script src="{% static 'js/portfolio.js' %}"></script>
+{% endblock %}
