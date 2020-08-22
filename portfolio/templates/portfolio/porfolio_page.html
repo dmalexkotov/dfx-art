@@ -1,19 +1,12 @@
 {% extends "portfolio/base.html" %}
-{% load static portfolio_tags wagtailcore_tags %}
+{% load static portfolio_tags wagtailcore_tags menu_tags %}
 
 {% block content %}
 <div class="section-projects portfolio">
     <div class="container">
         <div class="portfolio-menu">
             <div class="title-section">Portfolio</div>
-            <div class="portfolio-menu">
-                {% get_portfolio_pages as portfolio_pages %}
-                {% for portfolio_page in portfolio_pages %}    
-                    <div class="menu-item {%if portfolio_page.id == page.id %} active {% endif %}">
-                        <a href="{% pageurl portfolio_page %}">{{portfolio_page.title}}</a>
-                    </div>
-                {% endfor %}
-            </div>
+            {% flat_menu 'portfolio_menu' max_levels=1 template="menus/portfolio_menu.html"%}
         </div>
     </div>
     <div class="portfolio-list">

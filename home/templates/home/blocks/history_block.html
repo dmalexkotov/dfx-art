@@ -1,6 +1,6 @@
 {% load static wagtailcore_tags  %}
 
-<div class="history" id="section-history">
+<div class="history" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="container">
         <!-- <div class="title-section">DFX Art - <span>History</span></div> -->
         <div class="title-section">{{self.title}}</div>

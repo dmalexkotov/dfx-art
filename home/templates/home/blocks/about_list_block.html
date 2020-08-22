@@ -1,6 +1,6 @@
 {% load static wagtailcore_tags wagtailimages_tags  %}
 
-<div class="section-incredible" id="section-incredible">
+<div class="section-incredible"  {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="section-incredible__top">
         <div class="container">
             <!-- <div class="title-section">Incredible <span>COMPUTER GRAPHICS</span></div> -->
@@ -17,7 +17,9 @@
                                 <div class="about-item__block__top">
                                     {% comment %} <div class="about-item__title1" id="section2d">2D <span>Graphics</span></div> {% endcomment %}
                                     {% if item.title %}
-                                        <div class="about-item__title1" id="section2d">{{item.title|safe}}</div>
+                                        <div class="about-item__title1" {% if item.anchor %} id="{{ item.anchor }}" {% endif %}>
+                                            {{item.title|safe}}
+                                        </div>
                                     {% endif %}
                                     {% if item.sub_title %}
                                         {% comment %} <div class="about-item__title2">Concepts <span>&amp;</span> Layout Design / Sketches

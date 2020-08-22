@@ -3,6 +3,10 @@ from wagtail.core import blocks
 from wagtail.documents.blocks import DocumentChooserBlock
 from wagtail.images.blocks import ImageChooserBlock
 
+class AnchoredBlock(blocks.StructBlock):
+    """Абстрактный Блок с заголовком."""
+
+    anchor = blocks.CharBlock(required=False, help_text=_('Add anchor'))
 
 class MainBlock(blocks.StructBlock):
     """Блок для баннера на главной странице."""
@@ -43,7 +47,7 @@ class HeaderedBlock(blocks.StructBlock):
     title = blocks.CharBlock(required=True, help_text=_('Add title'))
 
 
-class AboutItemBlock(HeaderedBlock):
+class AboutItemBlock(HeaderedBlock, AnchoredBlock):
     """Блока описания."""
     title = blocks.CharBlock(required=True, help_text=_('Add title'))
     sub_title = blocks.CharBlock(required=False, help_text=_('Add subtitle'))
@@ -60,7 +64,7 @@ class AboutItemBlock(HeaderedBlock):
         label = 'About block'
 
 
-class AboutListBlock(HeaderedBlock):
+class AboutListBlock(HeaderedBlock, AnchoredBlock):
     """Набор блоков описания."""
 
     items = blocks.ListBlock(AboutItemBlock())
@@ -71,7 +75,7 @@ class AboutListBlock(HeaderedBlock):
         label = 'About list block'
 
 
-class ProjectListBlock(HeaderedBlock):
+class ProjectListBlock(HeaderedBlock, AnchoredBlock):
     """Блок со списком проектов для главной."""
 
     content = blocks.ListBlock(
@@ -83,7 +87,7 @@ class ProjectListBlock(HeaderedBlock):
         label = 'Project list block'
 
 
-class ProgrammingBlock(HeaderedBlock):
+class ProgrammingBlock(HeaderedBlock, AnchoredBlock):
     """Блок про программирование."""
 
     description = blocks.RichTextBlock(
@@ -99,7 +103,7 @@ class ProgrammingBlock(HeaderedBlock):
         label = 'Programming block'
 
 
-class AwardsBlock(HeaderedBlock):
+class AwardsBlock(HeaderedBlock, AnchoredBlock):
     """Блок с наградами."""
 
     items = blocks.ListBlock(blocks.StructBlock([
@@ -115,7 +119,7 @@ class AwardsBlock(HeaderedBlock):
         label = 'Awards block'
 
 
-class FoundersPatentsBlock(HeaderedBlock):
+class FoundersPatentsBlock(HeaderedBlock, AnchoredBlock):
     """Блок с патентом."""
 
     items = blocks.ListBlock(blocks.StructBlock([
@@ -132,7 +136,7 @@ class FoundersPatentsBlock(HeaderedBlock):
         label = 'Founder patents block'
 
 
-class HistoryBlock(HeaderedBlock):
+class HistoryBlock(HeaderedBlock, AnchoredBlock):
     """Блок с историей компании."""
 
     content = blocks.RichTextBlock()

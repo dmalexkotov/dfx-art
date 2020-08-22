@@ -80,6 +80,8 @@
         <div class="single_project_nav_wrap">
             {% if prev_page %}
                 <a href="{% pageurl prev_page %}" class="prev"><img src="{% static 'img/prev.png' %}" alt=""> prev</a>
+            {% else %}
+                <div class="prev"></div>
             {% endif %}
             
             <a class="btn btn-main" href="/portfolio">all projects<span class="btn-main__lines1"></span><span
@@ -87,6 +89,8 @@
             
             {% if next_page %}
                 <a href="{% pageurl next_page %}" class="next">next <img src="{% static 'img/next.png' %}" alt=""></a>
+            {% else %}
+                <div class="next"></div>
             {% endif %}
         </div>
     </div>

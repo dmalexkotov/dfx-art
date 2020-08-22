@@ -1,6 +1,6 @@
 {% load static wagtailcore_tags  wagtailimages_tags %}
 
-<div class="about-item about-item_spec" id="section-experience">
+<div class="about-item about-item_spec" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="about-item__main">
         <div class="container">
             <div class="about-item__block">

@@ -1,6 +1,7 @@
 from django.db import models
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
+from wagtail.core.models import Page
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 
@@ -16,3 +17,7 @@ class ContactsSettings(BaseSetting):
     panels = [
         StreamFieldPanel('contacts'),
     ]
+
+
+class EmptyPage(Page):
+    """Страницы заглушка."""

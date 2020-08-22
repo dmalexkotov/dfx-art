@@ -1,6 +1,6 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-<div class="section-programming" id="section-programming">
+<div class="section-programming" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="container">
         <div class="title-section">{{self.title}}</div>
         <div class="text-wrapper">

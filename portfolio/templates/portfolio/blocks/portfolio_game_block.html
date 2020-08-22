@@ -1,10 +1,15 @@
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 <div class="projects__item">
     <div>
-        <img src="{% static 'img/project-1.png' %}" alt="">
+        {% if self.cover %}
+            {% image self.cover fill-300x500 as cover_photo%}
+        {% else %}
+            {% image self.project_page.projectpage.cover fill-300x500 as cover_photo%}
+        {% endif %}
+        <img src="{{cover_photo.url}}" alt="">
         <div class="project__item_detail">
-            <div class="project__item_title">wizard gold</div>
+            <div class="project__item_title">{{self.project_page.title}}</div>
             <a class="btn btn-main" href="{% pageurl self.project_page %}">More detail<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
         </div>

@@ -1,7 +1,7 @@
 
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-<div class="container section-founders" id="section-patents">
+<div class="container section-founders" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <!-- <div class="title-section">Founders <span>patents</span></div> -->
     <div class="title-section">{{self.title}}</div>
     {% for item in self.items %}

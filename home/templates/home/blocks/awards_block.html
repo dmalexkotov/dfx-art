@@ -1,6 +1,6 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
-<div class="container section-awards" id="section-awards">
+<div class="container section-awards" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="title-section">{{self.title}}</div>
     {% for item in self.items %}
         <div class="block-info">

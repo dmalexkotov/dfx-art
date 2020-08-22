@@ -6,5 +6,5 @@ register = template.Library()
 
 
 @register.simple_tag(takes_context=True)
-def get_portfolio_pages(context):
+def get_portfolio_menu(context):
     return PorfolioPage.objects.all()
