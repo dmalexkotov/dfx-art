@@ -4359,6 +4359,7 @@ header.dark-head .logo__title span {
   width: 100%;
   background: rgba(0, 0, 0, 0.95);
   display: none;
+  z-index: 100000000;
 }
 .privacy_box p {
   margin: 1rem;
