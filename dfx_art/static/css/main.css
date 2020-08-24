@@ -2730,25 +2730,25 @@ main page
 @media (max-width: 767px) {
   .about-slider .css-about-items .about-item__block {
     height: 100%;
-    max-height: 50%;
+    max-height: 62%;
   }
 }
 
 @media (max-width: 600px) {
   .about-slider .css-about-items .about-item__block {
-    max-height: 55%;
+    max-height: 62%;
   }
 }
 
 @media (max-width: 425px) {
   .about-slider .css-about-items .about-item__block {
-    max-height: 53%;
+    max-height: 62%;
   }
 }
 
 @media (max-width: 375px) {
   .about-slider .css-about-items .about-item__block {
-    max-height: 55%;
+    max-height: 62%;
   }
 }
 

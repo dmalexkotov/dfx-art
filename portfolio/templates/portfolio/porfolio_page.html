@@ -18,24 +18,26 @@
     </div>
 
     <div class="container">
-        <div class="portfolio-navigation">
-            <div></div>
-            {% if pagination.current_page < pagination.pages_total %}
-                <div class="btn btn-main" href="#">
-                    load more
-                    <span class="btn-main__lines1"></span>
-                    <span class="btn-main__lines2"></span>
-                </div>
-            {% endif %}
-            
-            <ul>
-                {% for page_num in pagination.pages_total_range %}
-                    <li class="{% if pagination.current_page == forloop.counter %} active {% endif %}">
-                        <a href="{% pageurl page %}?page={{forloop.counter}}&size={{pagination.page_size}}">{{forloop.counter}}</a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+        {% if pagination.pages_total > 1 %}
+            <div class="portfolio-navigation">
+                <div></div>
+                {% if pagination.current_page < pagination.pages_total %}
+                    <div class="btn btn-main" href="#">
+                        load more
+                        <span class="btn-main__lines1"></span>
+                        <span class="btn-main__lines2"></span>
+                    </div>
+                {% endif %}
+                
+                <ul>
+                    {% for page_num in pagination.pages_total_range %}
+                        <li class="{% if pagination.current_page == forloop.counter %} active {% endif %}">
+                            <a href="{% pageurl page %}?page={{forloop.counter}}&size={{pagination.page_size}}">{{forloop.counter}}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}

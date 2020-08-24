@@ -4,7 +4,7 @@ $(document).ready(function() {
             $(".portfolio-list").append(data);
             pageNumber = pageNumber + 1;
             if (r.status == 211) {
-                $('.portfolio-navigation .btn-main').hide()
+                $('.portfolio-navigation').hide()
             }
         });
         
