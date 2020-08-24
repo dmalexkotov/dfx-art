@@ -128,6 +128,7 @@ class FoundersPatentsBlock(HeaderedBlock, AnchoredBlock):
         ('description', blocks.TextBlock()),
         ('image', ImageChooserBlock()),
         ('image_text', blocks.CharBlock()),
+        ('link', blocks.URLBlock(required=False)),
     ]))
 
     class Meta:

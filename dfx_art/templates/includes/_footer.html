@@ -17,7 +17,7 @@
         </div>
         <div class="footer__bottom">
             <div class="footer__bottom__col footer-locations">
-                {% with settings.common.ContactsSettings.contacts as contacts %}
+                {% with settings.common.SiteSettings.contacts as contacts %}
                     {% for c in contacts %}
                         <div class="footer-locations__block">
                             {{c}}
@@ -28,8 +28,8 @@
             <div class="copyright">© {% now 'Y' %}. All rights reserved</div>
             <div class="footer__bottom__col footer-contacts-wrapper">
                 <div class="footer-contact">
-                    <a class="link-mail" href="mailto:{{settings.common.ContactsSettings.email}}">
-                        <span class="link-mail__icon hide-768"><img src="img/mail.png" alt=""></span>{{settings.common.ContactsSettings.email}}
+                    <a class="link-mail" href="mailto:{{settings.common.SiteSettings.email}}">
+                        <span class="link-mail__icon hide-768"><img src="img/mail.png" alt=""></span>{{settings.common.SiteSettings.email}}
                     </a>
                 </div>
                 <!-- <div class="footer-social-text">
@@ -46,11 +46,9 @@
         </div>
     </div>
     <div class="privacy_box">
-        <p>
-            This site uses cookies, pixels, and other similar technologies, as well as social plugins, as further described in our privacy statement. If you continue to browse our site, you are accepting our use of these tools. You can modify your browser settings so as not to accept cookies.
-            <a href="{% slugurl 'cookie-policy' %}">Read our privacy statement</a>
-            
-        </p>
+        {% if settings.common.SiteSettings.privacy_text %}
+            {{settings.common.SiteSettings.privacy_text|safe}}
+        {% endif %}
         <div class="accept_button">
             Ok, got it!
         </div>

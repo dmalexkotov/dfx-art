@@ -4,7 +4,8 @@ from wagtail.documents.blocks import DocumentChooserBlock
 
 
 class PortfolioProject(blocks.StructBlock):
-    cover = ImageChooserBlock(required=False)
+    cover = ImageChooserBlock(
+        required=False, help_text='The image sould be about 300x500 size')
 
 
 class PortfolioPageBlock(PortfolioProject):

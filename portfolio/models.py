@@ -22,7 +22,7 @@ class ProjectPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text=_('Ad cover'),
+        help_text=_('The image sould be about 300x500 size'),
     )
 
     video = models.ForeignKey(

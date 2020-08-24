@@ -10,8 +10,15 @@
                 <div class="desc-title">{{item.desc_title}}</div>
                 <div class="patent-title">{{item.title}}</div>
                 <div class="patent-desc">{{item.description}}</div>
-                <div><a class="btn btn-main" href="#">More<span class="btn-main__lines1"></span><span
-                            class="btn-main__lines2"></span></a></div>
+                {% if item.link %}
+                    <div>
+                        <a class="btn btn-main" href="{{item.link}}">
+                            More
+                            <span class="btn-main__lines1"></span>
+                            <span class="btn-main__lines2"></span>
+                        </a>
+                    </div>
+                {% endif %}
             </div>
             {% image item.image original as tmp_photo %}
             <div class="block-info__img"><img src="{{tmp_photo.url}}" alt="">

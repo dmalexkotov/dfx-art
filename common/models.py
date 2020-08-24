@@ -9,14 +9,16 @@ from wagtail.contrib.settings.models import BaseSetting, register_setting
 from common.blocks import ContactBlock
 
 @register_setting
-class ContactsSettings(BaseSetting):
+class SiteSettings(BaseSetting):
     contacts = StreamField([
         ('contact', ContactBlock())
     ])
     email = models.CharField(max_length=60, help_text='Add email')
+    privacy_text = RichTextField(null=True, blank=True, help_text='Privacy text')
     
     panels = [
         StreamFieldPanel('contacts'),
+        RichTextFieldPanel('privacy_text'),
     ]
 
 
