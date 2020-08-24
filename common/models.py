@@ -3,7 +3,7 @@ from django.http import Http404
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField, RichTextField
 from wagtail.core.models import Page
-from wagtail.admin.edit_handlers import StreamFieldPanel, RichTextFieldPanel
+from wagtail.admin.edit_handlers import StreamFieldPanel, RichTextFieldPanel, FieldPanel
 from wagtail.contrib.settings.models import BaseSetting, register_setting
 
 from common.blocks import ContactBlock
@@ -19,6 +19,7 @@ class SiteSettings(BaseSetting):
     panels = [
         StreamFieldPanel('contacts'),
         RichTextFieldPanel('privacy_text'),
+        FieldPanel('email')
     ]
 
 
