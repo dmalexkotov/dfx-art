@@ -12,24 +12,26 @@ class PortfolioPageBlock(PortfolioProject):
     project_page = blocks.PageChooserBlock(required=True)
 
     class Meta:
-        template = 'portfolio/blocks/portfolio_game_block.html'
+        template = 'portfolio/blocks/portfolio_page_block.html'
         icon = 'plus'
         label = 'Portfolio Page block'
 
 
 class PortfolioVideoBlock(PortfolioProject):
+    title = blocks.CharBlock(required=False)
     video = DocumentChooserBlock(required=True)
 
     class Meta:
-        template = 'portfolio/blocks/portfolio_animation_block.html'
+        template = 'portfolio/blocks/portfolio_video_block.html'
         icon = 'plus'
         label = 'Portfolio Video block'
 
 
 class PortfolioImageBlock(PortfolioProject):
+    title = blocks.CharBlock(required=False)
     image = ImageChooserBlock(required=True)
 
     class Meta:
-        template = 'portfolio/blocks/portfolio_drawing_block.html'
+        template = 'portfolio/blocks/portfolio_image_block.html'
         icon = 'plus'
         label = 'Portfolio Image block'

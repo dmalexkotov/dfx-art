@@ -5,7 +5,11 @@
         {% image self.cover fill-300x500 as cover_photo%}
         <img src="{{cover_photo.url}}" alt="">
         <div class="project__item_detail">
-            <div class="project__item_title">wizard gold</div>
+            <div class="project__item_title">
+                {% if self.title %}
+                    {{self.title|safe}}
+                {% endif %}
+            </div>
             <a class="btn btn-main" data-fancybox="gallery-video" href="#video-{{self.id}}">More detail<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
             <video loop muted controls id="video-{{self.id}}">
