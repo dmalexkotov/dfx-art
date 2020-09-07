@@ -2,7 +2,7 @@
 
 <div class="section-programming" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="container">
-        <div class="title-section">{{self.title}}</div>
+        <div class="title-section">{{self.title|safe}}</div>
         <div class="text-wrapper">
             {{self.description}}
         </div>

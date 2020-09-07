@@ -3,12 +3,12 @@
 
 <div class="container section-founders" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <!-- <div class="title-section">Founders <span>patents</span></div> -->
-    <div class="title-section">{{self.title}}</div>
+    <div class="title-section">{{self.title|safe}}</div>
     {% for item in self.items %}
          <div class="block-info block-info_patent">
             <div class="block-info__main">
-                <div class="desc-title">{{item.desc_title}}</div>
-                <div class="patent-title">{{item.title}}</div>
+                <div class="desc-title">{{item.desc_title|safe}}</div>
+                <div class="patent-title">{{item.title|safe}}</div>
                 <div class="patent-desc">{{item.description}}</div>
                 {% if item.link %}
                     <div>

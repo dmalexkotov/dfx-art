@@ -3,7 +3,7 @@
 <div class="history" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="container">
         <!-- <div class="title-section">DFX Art - <span>History</span></div> -->
-        <div class="title-section">{{self.title}}</div>
+        <div class="title-section">{{self.title|safe}}</div>
         <div class="history__row">
             <div class="history__desc js-section-text clearfix">
                 <div class="history__img"><img src="{% static 'img/founders.png' %}" alt="">

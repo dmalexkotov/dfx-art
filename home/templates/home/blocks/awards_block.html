@@ -1,7 +1,7 @@
 {% load static wagtailcore_tags wagtailimages_tags %}
 
 <div class="container section-awards" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
-    <div class="title-section">{{self.title}}</div>
+    <div class="title-section">{{self.title|safe}}</div>
     {% for item in self.items %}
         <div class="block-info">
             {% image item.image original as tmp_image %}
@@ -12,7 +12,7 @@
                 <div class="block-info-bg-elem"></div>
             </div>
             <div class="block-info__main">
-                <div class="desc-title">{{item.title}}</div>
+                <div class="desc-title">{{self.title|safe}}</div>
                 <p>{{item.description}}</p>
             </div>
         </div>
