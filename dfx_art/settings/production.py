@@ -9,7 +9,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # SECURITY WARNING: keep the secret key used in production secret!
 
 try:
-    from .local import *
+    from .local_settings import *
 except ImportError:
     pass
 
