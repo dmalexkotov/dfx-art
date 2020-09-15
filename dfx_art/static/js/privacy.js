@@ -13,7 +13,7 @@ function privacyCheck() {
 $(document).ready(function() {
     const privacy = Cookies.get('eprivacy');
     $('.privacy_box .accept_button').click(function name() {
-        Cookies.set('eprivacy', 'accept');
+        Cookies.set('eprivacy', 'accept', { expires: 365 });
         $('.privacy_box').hide()
     })
     if (privacy) {

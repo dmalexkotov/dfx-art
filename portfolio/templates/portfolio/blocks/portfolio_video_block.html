@@ -12,7 +12,7 @@
             </div>
             <a class="btn btn-main" data-fancybox="gallery-video" href="#video-{{self.id}}">More detail<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
-            <video loop muted controls id="video-{{self.id}}">
+            <video controlsList="nodownload" loop muted controls id="video-{{self.id}}">
                 <source src="{{self.video.url}}">
             </video>
         </div>
