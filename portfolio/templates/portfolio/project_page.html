@@ -20,7 +20,7 @@
         {% endif %}
         <div class="project_title">{{page.title}}</div>
         <div class="project_video">
-            <video controlsList="nodownload" loop muted controls id="single_title_video">
+            <video controls playsinline controlsList="nodownload" loop muted controls id="single_title_video">
                 <source src="{{ page.video.url }}">
             </video>
             <img src="{% static 'img/playbtn.png' %}" alt="" class="play_img">
@@ -40,7 +40,7 @@
                                 <img src="{{cover_image.url}}" alt="">
                             </a>
                             <div class="projects__item__sources">
-                                <video controlsList="nodownload" loop muted controls id="video-{{item.id}}">
+                                <video playsinline controlsList="nodownload" loop muted controls id="video-{{item.id}}">
                                     <source src="{{item.video.url}}">
                                 </video>
                             </div>
