@@ -56,6 +56,12 @@ class ProjectGalleryImage(Orderable):
         on_delete=models.CASCADE,
         related_name='gallery_images'
     )
+    cover = models.ForeignKey(
+        'wagtailimages.Image',
+        on_delete=models.CASCADE,
+        related_name='+',
+        null=True,
+    )
     image = models.ForeignKey(
         'wagtailimages.Image',
         on_delete=models.CASCADE,
@@ -70,6 +76,7 @@ class ProjectGalleryImage(Orderable):
     )
 
     panels = [
+        ImageChooserPanel('cover'),
         ImageChooserPanel('image'),
         DocumentChooserPanel('video'),
     ]

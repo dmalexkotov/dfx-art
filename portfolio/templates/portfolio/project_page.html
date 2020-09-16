@@ -34,7 +34,11 @@
             {% for item in page.gallery_images.all %}
                 <div class="projects__item">
                     <div>
-                       {% image item.image fill-300x500 as cover_image %}
+                       {% if item.cover %}
+                           {% image item.cover fill-300x500 as cover_image %}
+                       {% else %}
+                           {% image item.image fill-300x500 as cover_image %}
+                       {% endif %}
                        {% if item.video %}
                             <a data-fancybox="gallery-video" href="#video-{{item.id}}">
                                 <img src="{{cover_image.url}}" alt="">
