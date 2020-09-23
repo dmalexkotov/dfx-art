@@ -21,7 +21,7 @@
         <div class="project_title">{{page.title}}</div>
         <div class="project_video">
             <video controls playsinline controlsList="nodownload" loop muted controls id="single_title_video">
-                <source src="{{ page.video.url }}">
+                <source src="{{ page.video.url }}" type="video/mp4">
             </video>
             <img src="{% static 'img/playbtn.png' %}" alt="" class="play_img">
         </div>
@@ -45,7 +45,7 @@
                             </a>
                             <div class="projects__item__sources">
                                 <video playsinline controlsList="nodownload" loop muted controls id="video-{{item.id}}">
-                                    <source src="{{item.video.url}}">
+                                    <source src="{{item.video.url}}" type="video/mp4">
                                 </video>
                             </div>
                         {% else %}
