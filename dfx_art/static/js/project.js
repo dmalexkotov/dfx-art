@@ -6,3 +6,7 @@ $(document).ready(function() {
         }
     })
 });
+
+$("video").contextmenu(function (event) {
+    event.preventDefault();
+})
