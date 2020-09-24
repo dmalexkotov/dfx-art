@@ -1,5 +1,5 @@
 {% extends "portfolio/base.html" %}
-{% load static wagtailcore_tags wagtailimages_tags %}
+{% load static wagtailcore_tags wagtailimages_tags common_tags %}
 
 {% block content %}
 <div class="main single_page">
@@ -20,8 +20,8 @@
         {% endif %}
         <div class="project_title">{{page.title}}</div>
         <div class="project_video">
-            <video controlsList="nodownload" loop muted controls id="single_title_video">
-                <source src="{{ page.video.url }}" type="video/mp4">
+            <video controlsList="nodownload" loop muted id="single_title_video">
+                <source src="{{ page.video.url }}" type="{% get_mime_type page.video.url %}">
             </video>
             <img src="{% static 'img/playbtn.png' %}" alt="" class="play_img">
         </div>
@@ -45,7 +45,7 @@
                             </a>
                             <div class="projects__item__sources">
                                 <video controlsList="nodownload" loop muted controls id="video-{{item.id}}">
-                                    <source src="{{item.video.url}}" type="video/mp4">
+                                    <source src="{{item.video.url}}" type="{% get_mime_type item.video.url %}">
                                 </video>
                             </div>
                         {% else %}

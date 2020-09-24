@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags  %}
+{% load static wagtailcore_tags common_tags %}
 
 <div class="main">
     <div class="container">
@@ -12,7 +12,8 @@
         </div>
     </div>
     <div class="main__back">
-        <video controlsList="nodownload" loop class="" loop autoplay src="{{ self.background.url }}" muted id="main_video_bg" type="video/mp4">
+        <video controlsList="nodownload" loop class="" loop autoplay
+        src="{{ self.background.url }}" muted id="main_video_bg" type="{% get_mime_type self.background.url %}">
         </video>
         <div class="main__bg-img"><img src="{% static 'img/bg-main.jpg' %}" alt=""></div>
         <div class="main__bg-text"><img src="{% static 'img/text-bg.png' %}" alt=""></div>

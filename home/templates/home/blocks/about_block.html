@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags  wagtailimages_tags %}
+{% load static wagtailcore_tags  wagtailimages_tags common_tags %}
 
 <div class="about-item about-item_spec" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="about-item__main">
@@ -15,7 +15,7 @@
     </div>
     <div class="video-bg">
         <video controlsList="nodownload" loop class="" width="100%" height="auto" preload="auto"
-            loop="loop" type="video/mp4" src="{{ self.video_background.url }}" autoplay muted data-object-fit="cover">
+            loop="loop" type="{% get_mime_type self.video_background.url %}" src="{{ self.video_background.url }}" autoplay muted data-object-fit="cover">
         </video>
     </div>
     <div class="img-bg">
