@@ -2,7 +2,7 @@ import os
 
 from .base import *
 
-DEBUG = False
+DEBUG = os.getenv('DEBUG', None) == 'True' or False
 ALLOWED_HOSTS = ['*'] 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
