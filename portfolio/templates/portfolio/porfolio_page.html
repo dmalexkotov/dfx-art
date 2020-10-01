@@ -43,6 +43,7 @@
 {% endblock content %}
 
 {% block extra_js %}
+{{ block.super }}
 <script type="text/javascript">
     var pageNumber = parseInt("{{ pagination.current_page }}");
     var pageSize = parseInt("{{ pagination.page_size }}");
