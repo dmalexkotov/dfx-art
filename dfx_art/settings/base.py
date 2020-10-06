@@ -170,3 +170,5 @@ WAGTAIL_SITE_NAME = "dfx_art"
 BASE_URL = "http://example.com"
 
 PORTFOLIO_PAGE_SIZE = 30
+
+WAGTAILDOCS_SERVE_METHOD = 'direct'
