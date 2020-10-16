@@ -3559,13 +3559,15 @@ header.dark-head .logo__title span {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 .project_gallery .gallery .projects__item {
   width: 25%;
   border: unset;
-  padding: 0;
+  padding: 1rem;
   margin: 0;
 }
 
