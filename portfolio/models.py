@@ -32,11 +32,22 @@ class ProjectPage(Page):
         on_delete=models.SET_NULL,
         help_text=_('Ad video')
     )
+
+    video_cover = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text=_('The image for placeholding the video'),
+    )
+
     description = fields.RichTextField(null=True, blank=True)
 
     content_panels = Page.content_panels + [
         ImageChooserPanel('cover'),
         DocumentChooserPanel('video'),
+        ImageChooserPanel('video_cover'),
         FieldPanel('description'),
         InlinePanel('gallery_images', label='Gallery images'),
     ]
