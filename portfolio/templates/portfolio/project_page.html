@@ -36,9 +36,9 @@
                 <div class="projects__item">
                     <div>
                        {% if item.cover %}
-                           {% image item.cover fill-300x500 as cover_image %}
+                           {% image item.cover fill-300x500 watermark as cover_image %}
                        {% else %}
-                           {% image item.image fill-300x500 as cover_image %}
+                           {% image item.image fill-300x500 watermark as cover_image %}
                        {% endif %}
                        {% if item.video %}
                             <a data-fancybox="gallery-video" href="#video-{{item.id}}">

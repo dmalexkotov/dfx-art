@@ -7,11 +7,11 @@
         <div class="project__item_detail">
             <div class="project__item_title">
                 {% if self.title %}
-                    {{self.title|safe}}
+                {{self.title|safe}}
                 {% endif %}
             </div>
-            <a class="btn btn-main" data-fancybox="gallery-image" href="#image-{{self.id}}">More detail<span class="btn-main__lines1"></span><span
-                    class="btn-main__lines2"></span></a>
+            <a class="btn btn-main" data-fancybox="gallery-image" href="#image-{{self.id}}">More detail<span
+                    class="btn-main__lines1"></span><span class="btn-main__lines2"></span></a>
             {% image self.image original as imageoriginal%}
             <img src="{{imageoriginal.url}}" id="image-{{self.id}}" alt="">
         </div>
