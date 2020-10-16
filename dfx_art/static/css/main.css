@@ -3331,6 +3331,16 @@ header.dark-head .logo__title span {
   }
 }
 
+.section-projects.portfolio .portfolio-navigation .portfolio-navigation-item {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.section-projects.portfolio .portfolio-navigation .portfolio-navigation-item:last-child {
+  justify-content: flex-end;
+}
+
 .section-projects.portfolio .portfolio-navigation .btn-main {
   width: 312px;
   height: 67px;

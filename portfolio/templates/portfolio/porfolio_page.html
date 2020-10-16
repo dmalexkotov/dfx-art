@@ -11,32 +11,38 @@
     </div>
     <div class="portfolio-list">
         {% for project in page.projects %}
-            {% if pagination.item_from <= forloop.counter0 and forloop.counter0 < pagination.item_to %}
-                {% include_block project %}
-            {% endif %}
+        {% if pagination.item_from <= forloop.counter0 and forloop.counter0 < pagination.item_to %}
+        {% include_block project %}
+        {% endif %}
         {% endfor %}
     </div>
 
     <div class="container">
         {% if pagination.pages_total > 1 %}
-            <div class="portfolio-navigation">
+        <div class="portfolio-navigation">
+            <div class="portfolio-navigation-item">
                 <div></div>
-                {% if pagination.current_page < pagination.pages_total %}
-                    <div class="btn btn-main" href="#">
-                        load more
-                        <span class="btn-main__lines1"></span>
-                        <span class="btn-main__lines2"></span>
-                    </div>
-                {% endif %}
-                
+            </div>
+            {% if pagination.current_page < pagination.pages_total %}
+            <div class="portfolio-navigation-item">
+                <div class="btn btn-main" href="#">
+                    load more
+                    <span class="btn-main__lines1"></span>
+                    <span class="btn-main__lines2"></span>
+                </div>
+            </div>
+            {% endif %}
+            <div class="portfolio-navigation-item">
                 <ul>
                     {% for page_num in pagination.pages_total_range %}
-                        <li class="{% if pagination.current_page == forloop.counter %} active {% endif %}">
-                            <a href="{% pageurl page %}?page={{forloop.counter}}&size={{pagination.page_size}}">{{forloop.counter}}</a>
-                        </li>
+                    <li class="{% if pagination.current_page == forloop.counter %} active {% endif %}">
+                        <a
+                            href="{% pageurl page %}?page={{forloop.counter}}&size={{pagination.page_size}}">{{forloop.counter}}</a>
+                    </li>
                     {% endfor %}
                 </ul>
             </div>
+        </div>
         {% endif %}
     </div>
 </div>

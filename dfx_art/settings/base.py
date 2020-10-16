@@ -169,6 +169,6 @@ WAGTAIL_SITE_NAME = "dfx_art"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
 
-PORTFOLIO_PAGE_SIZE = 30
+PORTFOLIO_PAGE_SIZE = 2
 
 WAGTAILDOCS_SERVE_METHOD = 'direct'
