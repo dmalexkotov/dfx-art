@@ -12,7 +12,7 @@
             </div>
             <a class="btn btn-main" data-fancybox="gallery-image" href="#image-{{self.id}}">More detail<span
                     class="btn-main__lines1"></span><span class="btn-main__lines2"></span></a>
-            {% image self.image original as imageoriginal%}
+            {% image self.image original watermark as imageoriginal%}
             <img src="{{imageoriginal.url}}" id="image-{{self.id}}" alt="">
         </div>
     </div>

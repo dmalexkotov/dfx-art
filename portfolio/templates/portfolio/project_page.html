@@ -5,23 +5,24 @@
 <div class="main single_page">
     <div class="container">
         {% if page.get_ancestors|length > 1 %}
-            <ul class="breadcramps">
-                {% for breadcrumb in page.get_ancestors %}
-                    {% if breadcrumb.is_root == False %}
-                        <li>
-                            <a href="{% pageurl breadcrumb %}">
-                                {{breadcrumb.title}} /
-                            </a> 
-                        </li>
-                    {% endif %}
-                {% endfor %}
-                <li class="current-level">{{page.title}}</li>
-            </ul>
+        <ul class="breadcramps">
+            {% for breadcrumb in page.get_ancestors %}
+            {% if breadcrumb.is_root == False %}
+            <li>
+                <a href="{% pageurl breadcrumb %}">
+                    {{breadcrumb.title}} /
+                </a>
+            </li>
+            {% endif %}
+            {% endfor %}
+            <li class="current-level">{{page.title}}</li>
+        </ul>
         {% endif %}
         <div class="project_title">{{page.title}}</div>
         <div class="project_video">
             {% image page.video_cover original as video_cover_image %}
-            <video controlsList="nodownload" {% if video_cover_image %} poster="{{video_cover_image.url}}" {% endif %} loop muted id="single_title_video">
+            <video controlsList="nodownload" {% if video_cover_image %} poster="{{video_cover_image.url}}" {% endif %}
+                loop muted id="single_title_video">
                 <source src="{{ page.video.url }}" type="{% get_mime_type page.video.url %}">
             </video>
             <img src="{% static 'img/playbtn.png' %}" alt="" class="play_img">
@@ -33,37 +34,37 @@
         <div class="gallery_title"><span>images</span> of this project</div>
         <div class="gallery">
             {% for item in page.gallery_images.all %}
-                <div class="projects__item">
-                    <div>
-                       {% if item.cover %}
-                           {% image item.cover fill-300x500 watermark as cover_image %}
-                       {% else %}
-                           {% image item.image fill-300x500 watermark as cover_image %}
-                       {% endif %}
-                       {% if item.video %}
-                            <a data-fancybox="gallery-video" href="#video-{{item.id}}">
-                                <img src="{{cover_image.url}}" alt="">
-                            </a>
-                            <div class="projects__item__sources">
-                                <video controlsList="nodownload" loop muted controls id="video-{{item.id}}">
-                                    <source src="{{item.video.url}}" type="{% get_mime_type item.video.url %}">
-                                </video>
-                            </div>
-                        {% else %}
-                            <a data-fancybox="gallery-image" href="#image-{{item.id}}">
-                                <img src="{{cover_image.url}}" alt="">
-                            </a>
-                            <div class="projects__item__sources">
-                                {% image item.image original as imageoriginal %}
-                                <img id="image-{{item.id}}" src="{{imageoriginal.url}}" alt="">
-                            </div>
-                        {% endif %}
+            <div class="projects__item">
+                <div>
+                    {% if item.cover %}
+                    {% image item.cover fill-300x500 as cover_image %}
+                    {% else %}
+                    {% image item.image fill-300x500 as cover_image %}
+                    {% endif %}
+                    {% if item.video %}
+                    <a data-fancybox="gallery-video" href="#video-{{item.id}}">
+                        <img src="{{cover_image.url}}" alt="">
+                    </a>
+                    <div class="projects__item__sources">
+                        <video controlsList="nodownload" loop muted controls id="video-{{item.id}}">
+                            <source src="{{item.video.url}}" type="{% get_mime_type item.video.url %}">
+                        </video>
                     </div>
+                    {% else %}
+                    <a data-fancybox="gallery-image" href="#image-{{item.id}}">
+                        <img src="{{cover_image.url}}" alt="">
+                    </a>
+                    <div class="projects__item__sources">
+                        {% image item.image original watermark as imageoriginal %}
+                        <img id="image-{{item.id}}" src="{{imageoriginal.url}}" alt="">
+                    </div>
+                    {% endif %}
                 </div>
+            </div>
             {% endfor %}
         </div>
         <div class="single_progect_descr">
-           {{page.description | richtext}}
+            {{page.description | richtext}}
         </div>
     </div>
 </div>
@@ -72,18 +73,18 @@
     <div class="container">
         <div class="single_project_nav_wrap">
             {% if prev_page %}
-                <a href="{% pageurl prev_page %}" class="prev"><img src="{% static 'img/prev.png' %}" alt=""> prev</a>
+            <a href="{% pageurl prev_page %}" class="prev"><img src="{% static 'img/prev.png' %}" alt=""> prev</a>
             {% else %}
-                <div class="prev"></div>
+            <div class="prev"></div>
             {% endif %}
-            
+
             <a class="btn btn-main" href="/portfolio/games/">all projects<span class="btn-main__lines1"></span><span
                     class="btn-main__lines2"></span></a>
-            
+
             {% if next_page %}
-                <a href="{% pageurl next_page %}" class="next">next <img src="{% static 'img/next.png' %}" alt=""></a>
+            <a href="{% pageurl next_page %}" class="next">next <img src="{% static 'img/next.png' %}" alt=""></a>
             {% else %}
-                <div class="next"></div>
+            <div class="next"></div>
             {% endif %}
         </div>
     </div>
@@ -91,15 +92,15 @@
 {% endblock content %}
 
 {% block extra_js %}
-	<script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/blazy.min.js' %}"></script>
-    <script src="{% static 'js/menuspy.min.js' %}"></script>
-    <script src="{% static 'js/slick.min.js' %}"></script>
-	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-	<script src="{% static 'js/jquery.matchHeight-min.js' %}"></script>
-	<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
-	<script src="{% static 'js/jquery.lazy.min.js' %}"></script>
-    <script src="{% static 'js/jquery.lazy.av.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js/project.js' %}"></script>
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/blazy.min.js' %}"></script>
+<script src="{% static 'js/menuspy.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.matchHeight-min.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
+<script src="{% static 'js/jquery.lazy.min.js' %}"></script>
+<script src="{% static 'js/jquery.lazy.av.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/project.js' %}"></script>
 {% endblock %}
