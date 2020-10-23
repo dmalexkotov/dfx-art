@@ -40,7 +40,11 @@ class SiteSettings(BaseSetting):
         help_text=_('Watermark backgroud'),
     )
 
-    privacy_text = RichTextField(null=True, blank=True, help_text='Privacy text')
+    privacy_text = RichTextField(
+        null=True,
+        blank=True,
+        help_text='Privacy text'
+    )
 
     panels = [
         StreamFieldPanel('contacts'),
