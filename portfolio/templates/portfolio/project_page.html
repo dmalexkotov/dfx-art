@@ -1,5 +1,5 @@
 {% extends "portfolio/base.html" %}
-{% load static wagtailcore_tags wagtailimages_tags common_tags %}
+{% load static wagtailcore_tags wagtailimages_tags common_tags quill_tags %}
 
 {% block content %}
 <div class="main single_page">
@@ -64,7 +64,7 @@
             {% endfor %}
         </div>
         <div class="single_progect_descr">
-            {{page.description | richtext}}
+            {{page.description | quillrichtext}}
         </div>
     </div>
 </div>

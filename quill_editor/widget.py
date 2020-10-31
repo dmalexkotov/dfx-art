@@ -5,7 +5,6 @@ from django.forms import Media, widgets
 from django.utils.functional import cached_property
 
 from wagtail.admin.edit_handlers import RichTextFieldPanel
-from wagtail.admin.rich_text.converters.contentstate import ContentstateConverter
 from wagtail.admin.staticfiles import versioned_static
 from wagtail.core.rich_text import features as feature_registry
 
@@ -73,6 +72,8 @@ class QuillRichTextArea(widgets.HiddenInput):
         media = Media(
             js=[
                 versioned_static("quill/js/quill.js"),
+                versioned_static("wagtailadmin/js/page-chooser-modal.js"),
+                versioned_static("quill/js/quill.wagtailadmin.js"),
                 # versioned_static("quill/js/quill.min.js"),
                 # versioned_static("quill/js/quill.core.js"),
             ],
