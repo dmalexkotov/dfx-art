@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "home",
     "portfolio",
     "common",
+    "quill_editor",
     "wagtail.api.v2",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
@@ -68,7 +69,9 @@ ROOT_URLCONF = "dfx_art.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(PROJECT_DIR, "templates"), ],
+        "DIRS": [
+            os.path.join(PROJECT_DIR, "templates"),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -90,13 +93,13 @@ WSGI_APPLICATION = "dfx_art.wsgi.application"
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dfx_art',
-        'USER': 'dfx_art',
-        'PASSWORD': 'dfx_art',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "dfx_art",
+        "USER": "dfx_art",
+        "PASSWORD": "dfx_art",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
     }
 }
 
@@ -108,9 +111,11 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa
     },
-    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",},  # noqa
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",   # noqa
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
+    },  # noqa
+    {
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa
     },  # noqa
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa
@@ -149,9 +154,7 @@ STATICFILES_DIRS = [
 # Javascript / CSS assets being served from cache
 # (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/3.0/ref/contrib/staticfiles/#manifeststaticfilesstorage  # noqa
-STATICFILES_STORAGE = (
-    "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
-)
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
@@ -171,4 +174,8 @@ BASE_URL = "http://example.com"
 
 PORTFOLIO_PAGE_SIZE = 2
 
-WAGTAILDOCS_SERVE_METHOD = 'direct'
+WAGTAILDOCS_SERVE_METHOD = "direct"
+
+WAGTAILADMIN_RICH_TEXT_EDITORS = {
+    "default": {"WIDGET": "quill_editor.widget.QuillRichTextArea"}
+}

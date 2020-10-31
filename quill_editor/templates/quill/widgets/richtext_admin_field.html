@@ -1,0 +1,30 @@
+{% include 'django/forms/widgets/hidden.html' %}
+<div id="editor_{{ widget.attrs.id|escapejs }}"></div>
+<script>
+    (function(){
+        const quill = new Quill('#editor_{{ widget.attrs.id|escapejs }}', {
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['image', 'code-block']
+                ]
+            },
+            theme: 'snow'
+        });
+        const editorContent = JSON.parse(
+            $("#{{ widget.attrs.id|escapejs }}").attr("value")
+        )
+        if (editorContent) {
+            quill.setContents(editorContent)
+        }
+        window.quill.on('editor-change', function() {
+            $("#{{ widget.attrs.id|escapejs }}").attr(
+                "value",
+                JSON.stringify(quill.getContents())
+            );
+        });
+    })()
+    
+
+</script>
