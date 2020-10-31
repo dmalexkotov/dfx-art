@@ -72,6 +72,7 @@ class QuillRichTextArea(widgets.HiddenInput):
         media = Media(
             js=[
                 versioned_static("quill/js/quill.js"),
+                versioned_static("quill/js/quill-dragdrop-module.js"),
                 versioned_static("wagtailadmin/js/page-chooser-modal.js"),
                 versioned_static("quill/js/quill.wagtailadmin.js"),
                 # versioned_static("quill/js/quill.min.js"),

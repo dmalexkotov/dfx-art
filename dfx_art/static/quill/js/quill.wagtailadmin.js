@@ -1,6 +1,15 @@
 function setupQuillAdmin(fieldId){
     const quill = new Quill(`#editor_${fieldId}`, {
         modules: {
+            dragAndDrop: {
+                draggables: [
+                  {
+                    content_type_pattern: '^image/', // Any file with matching type will result in ...
+                    tag: 'img', // ... an 'img' tag ...
+                    attr: 'src' // ... with 'src' equal to the file's base64 (or the result of `onDrop` [see below]).
+                  }
+                ]
+            },
             toolbar: {
                 container: `#editor_${fieldId}_toolbar`,
                 handlers: {
@@ -44,7 +53,10 @@ function setupQuillAdmin(fieldId){
         },
         theme: 'snow',
     });
-    
+    quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
+        console.log(delta.insert({image: "/asdasd"}));
+        return delta;
+    });
     const editorContent = JSON.parse(
         $(`#${fieldId}`).attr("value")
     )
