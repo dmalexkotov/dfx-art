@@ -22,7 +22,7 @@
         <div class="project_video">
             {% image page.video_cover original as video_cover_image %}
             <video controlsList="nodownload" {% if video_cover_image %} poster="{{video_cover_image.url}}" {% endif %}
-                loop muted id="single_title_video">
+                loop muted  preload="none" id="single_title_video">
                 <source src="{{ page.video.url }}" type="{% get_mime_type page.video.url %}">
             </video>
             <img src="{% static 'img/playbtn.png' %}" alt="" class="play_img">
