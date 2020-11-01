@@ -81,7 +81,7 @@ class QuillRichTextArea(widgets.HiddenInput):
             css={
                 "all": [
                     # versioned_static("quill/css/quill.core.css"),
-                    versioned_static("quill/css/quill.snow.css"),
+                    versioned_static("quill/css/quill.dfx.css"),
                 ]
             },
         )

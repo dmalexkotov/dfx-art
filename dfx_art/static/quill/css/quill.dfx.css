@@ -6,11 +6,12 @@
  */
 .ql-container {
   box-sizing: border-box;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: 'Helvetica World', Arial, sans-serif;
+  font-size: 18px;
   height: 100%;
   margin: 0px;
   position: relative;
+  color: #000;
 }
 .ql-container.ql-disabled .ql-tooltip {
   visibility: hidden;
@@ -56,6 +57,8 @@
 .ql-editor h4,
 .ql-editor h5,
 .ql-editor h6 {
+  text-transform: none;
+  color: #000;
   margin: 0;
   padding: 0;
   counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
@@ -938,7 +941,7 @@
   content: "Enter video:";
 }
 .ql-snow a {
-  color: #06c;
+  color: #32b265;
 }
 .ql-container.ql-snow {
   border: 1px solid #ccc;
