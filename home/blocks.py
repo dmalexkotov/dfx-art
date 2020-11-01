@@ -3,10 +3,12 @@ from wagtail.core import blocks
 from wagtail.documents.blocks import DocumentChooserBlock
 from wagtail.images.blocks import ImageChooserBlock
 
+
 class AnchoredBlock(blocks.StructBlock):
     """Абстрактный Блок с заголовком."""
 
     anchor = blocks.CharBlock(required=False, help_text=_('Add anchor'))
+
 
 class MainBlock(blocks.StructBlock):
     """Блок для баннера на главной странице."""

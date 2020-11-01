@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags wagtailimages_tags  %}
+{% load static wagtailcore_tags wagtailimages_tags quill_tags %}
 
 <div class="section-incredible"  {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="section-incredible__top">
@@ -28,7 +28,7 @@
                                     {% endif %}
                                     
                                 </div>
-                                {{item.text}}
+                                {{item.text|quillrichtext}}
                                 <span class="showless">Show less</span>
                             </div>
                             <div class="bg-elem2"></div>
@@ -62,7 +62,7 @@
                                             <div class="about-item__title2">{{item.sub_title|safe}}</div>
                                         {% endif %}
                                     </div>
-                                    {{item.text}}
+                                    {{item.text|quillrichtext}}
                                 </div>
                                 <div class="bg-elem2"></div>
                             </div>

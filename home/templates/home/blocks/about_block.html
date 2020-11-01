@@ -1,4 +1,4 @@
-{% load static wagtailcore_tags  wagtailimages_tags common_tags %}
+{% load static wagtailcore_tags quill_tags wagtailimages_tags common_tags %}
 
 <div class="about-item about-item_spec" {% if self.anchor %} id="{{ self.anchor }}" {% endif %}>
     <div class="about-item__main">
@@ -7,7 +7,7 @@
                 <div class="about-item__block__inner js-section-text">
                     <!-- <div class="title-section">Huge <span>Experience</span></div> -->
                     <div class="title-section">{{self.title|safe}}</div>
-                    {{ self.text }}
+                    {{ self.text|quillrichtext }}
                 </div>
                 <div class="bg-elem"></div>
             </div>

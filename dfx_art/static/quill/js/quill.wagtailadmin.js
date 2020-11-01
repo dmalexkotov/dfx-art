@@ -65,11 +65,14 @@ function setupQuillAdmin(fieldId){
         console.log(delta.insert({image: "/asdasd"}));
         return delta;
     });
-    const editorContent = JSON.parse(
-        $(`#${fieldId}`).attr("value")
-    )
-    if (editorContent) {
-        quill.setContents(editorContent)
+    const savedValue = $(`#${fieldId}`).attr("value");
+    if (savedValue) {
+        try {
+            const editorContent = JSON.parse(savedValue)
+            quill.setContents(editorContent)
+        } catch (error) {
+            quill.clipboard.dangerouslyPasteHTML(savedValue)
+        }
     }
     quill.on('editor-change', function() {
         $(`#${fieldId}`).attr(

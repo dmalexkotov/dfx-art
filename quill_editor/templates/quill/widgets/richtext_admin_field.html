@@ -1,6 +1,6 @@
 {% include 'django/forms/widgets/hidden.html' %}
 
-<div id="editor_{{ widget.attrs.id|escapejs }}_toolbar">
+<div id="editor_{{ widget.attrs.id|stringformat:'s'}}_toolbar">
     <div id="toolbar-container">
       <span class="ql-formats">
         <select class="ql-font"></select>
@@ -45,7 +45,7 @@
     <div id="editor-container"></div>
   </div>
 
-<div id="editor_{{ widget.attrs.id|escapejs }}"></div>
+<div id="editor_{{ widget.attrs.id|stringformat:'s' }}"></div>
 <script>
     setupQuillAdmin("{{ widget.attrs.id|escapejs }}");
 </script>
