@@ -21,11 +21,19 @@ function setupQuillAdmin(fieldId){
                                 imageChosen: function(imageData) {
                                     let range = quill.getSelection(true);
                                     const Delta = Quill.import('delta');
+                                    const nameArray = imageData.preview.url.split('\\').pop().split('/').pop().split('.');
+                                    let fileName;
+                                    if (nameArray.length > 2) {
+                                        nameArray.splice(-2, 1);
+                                        fileName = nameArray.join('.');
+                                    } else {
+                                        fileName = nameArray.join('.');
+                                    }
                                     quill.updateContents(
                                         new Delta()
                                         .retain(range.index)
                                         .delete(range.length)
-                                        .insert({ image: imageData.preview.url }),
+                                        .insert({ image: `/media/original_images/${fileName}` }),
                                         Quill.sources.USER
                                     );
                                 }
