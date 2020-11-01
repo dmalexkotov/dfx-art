@@ -172,7 +172,7 @@ WAGTAIL_SITE_NAME = "dfx_art"
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = "http://example.com"
 
-PORTFOLIO_PAGE_SIZE = 2
+PORTFOLIO_PAGE_SIZE = int(os.getenv('PORTFOLIO_PAGE_SIZE', 10))
 
 WAGTAILDOCS_SERVE_METHOD = "direct"
 
