@@ -45,7 +45,7 @@ class WatermarkedOperation(Operation):
             # target_wm_width = source_width / 3.5
             # target_wm_height = target_wm_width/wm_ratio
 
-            wm_offset = int(source_width * 0.01)
+            wm_offset = int(0)
 
             watermark_logo = watermark_logo.resize(
                 (int(wm_width), int(wm_height)),
