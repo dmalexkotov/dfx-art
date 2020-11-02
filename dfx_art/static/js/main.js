@@ -227,9 +227,6 @@ $(document).ready(function() {
     $(this).parent().find($('.readmore')).slideDown();
   })
 
-  $('.project_video #single_title_video').on('click', function(){
-    $('.project_video #single_title_video').parent().find('.play_img').fadeToggle(100);
-  })
   $('.project_video .play_img').on('click', function(){
     $('.project_video #single_title_video').get(0).play();
     $(this).hide();
