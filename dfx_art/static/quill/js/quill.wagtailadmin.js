@@ -61,10 +61,6 @@ function setupQuillAdmin(fieldId){
         },
         theme: 'snow',
     });
-    quill.clipboard.addMatcher(Node.ELEMENT_NODE, function(node, delta) {
-        console.log(delta.insert({image: "/asdasd"}));
-        return delta;
-    });
     const savedValue = $(`#${fieldId}`).attr("value");
     if (savedValue) {
         try {
