@@ -2409,7 +2409,7 @@ main page
   margin-bottom: 0;
 }
 
-.history__desc hr {
+.history__desc a[href="/#cut"] {
   display: none;
 }
 
